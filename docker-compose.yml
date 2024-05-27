@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: docker-node-container
+    build: .
+    image: express
+    ports:
+      - 13000:2000
+    volumes:
+      - .:/usr/src/app
+    command: npm run devStart
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
